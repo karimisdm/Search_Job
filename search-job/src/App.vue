@@ -2,14 +2,7 @@
 </script>
 <template>
   <div>
-    <h1>Hello, Im in App.vue</h1>
+    <h1 class="mt-8 text-center text-6xl ">This is App.vue</h1>
   
   </div>
 </template>
-<style scoped>
-h1 {
-color: purple;;
-}
-
-
-</style>
