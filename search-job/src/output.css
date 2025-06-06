@@ -562,14 +562,6 @@ video {
   display: flex;
 }
 
-.pl-8 {
-  padding-left: 2rem;
-}
-
-.pl-12 {
-  padding-left: 3rem;
-}
-
 .text-center {
   text-align: center;
 }
