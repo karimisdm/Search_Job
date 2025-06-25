@@ -1,5 +1,5 @@
 <script setup>
-const companyName = "MyCompany Careers";
+const companyName = "MyCompany";
 </script>
 
 <template>

@@ -4,7 +4,10 @@ import MainNav from '@/components/MainNav.vue';
 describe('MainNav', ()=>{
     it('display company name', ()=>{
         render(MainNav);
-        screen.debug();
-
+        const comName = screen.getByText('MyCompany');
+        console.log(comName)
+        
+        expect(comName).toBe('MyCompony');
+    
     })
 })
