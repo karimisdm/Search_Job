@@ -4,6 +4,5 @@ import MainNav from '@/components/MainNav.vue';
 <template>
   <div>
     <MainNav/>
-  
   </div>
 </template>
