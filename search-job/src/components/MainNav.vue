@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
 const companyName = "MyJobMarket"
@@ -12,7 +13,11 @@ const menuItems = [
   "Students",
   "Jobs"
 ];
-const isLoggedIn = false;
+const isLoggedIn = ref(false);
+
+const loginUser = ()=>{
+    isLoggedIn.value = true;
+}
 </script>
 
 <template>
@@ -35,7 +40,7 @@ const isLoggedIn = false;
         </nav>
         <div class="ml-auto flex h-full items-center">
             <ProfileImage v-if="isLoggedIn"/>
-            <ActionButton v-else />
+            <ActionButton v-else @click="loginUser()" />
         </div>
       </div>
     </div>

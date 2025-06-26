@@ -1,4 +1,7 @@
 <script setup>
+const handleClick = ()=>{
+    console.log("Button Clicked!");
+}
 </script>
 
 <template>
