@@ -34,7 +34,8 @@ const isLoggedIn = false;
           </ul>
         </nav>
         <div class="ml-auto flex h-full items-center">
-            <ActionButton v-if="!isLoggedIn"/>
+            <ProfileImage v-if="isLoggedIn"/>
+            <ActionButton v-else />
         </div>
       </div>
     </div>
