@@ -15,5 +15,14 @@ describe('MainNav', ()=>{
     const companyName = screen.getByText("MyJobMarket");
     expect(companyName).toBeInTheDocument();
   });
+
+  describe('when the user log in',()=>{
+    it('display user profile picture',()=>{
+        render(MainNav);
+        const profileImage = screen.queryByRole('img',
+            {name:'picture of user'});
+            expect(profileImage).not.toBeInTheDocument();
+   })
+    })
+  })
     
-})
