@@ -3,6 +3,7 @@ import MainNav from '@/components/MainNav.vue'
 import {describe , it , expect} from 'vitest'
 import {render, screen} from '@testing-library/vue'
 import '@testing-library/jest-dom'
+import userEvent from '@testing-library/user-event'
 
 
 describe('MainNav', ()=>{
@@ -17,11 +18,19 @@ describe('MainNav', ()=>{
   });
 
   describe('when the user log in',()=>{
-    it('display user profile picture',()=>{
+    it('display user profile picture',async ()=>{
         render(MainNav);
-        const profileImage = screen.queryByRole('img',
-            {name:'picture of user'});
+         let profileImage = screen.queryByRole('img',
+            {name:/picture of user/i});
             expect(profileImage).not.toBeInTheDocument();
+        const loginButton = screen.getByRole('button', {
+            name: /Sign In/i
+        }) ;
+        await userEvent.click(loginButton);
+           profileImage = screen.queryByRole('img',
+            {name:/picture of user/i});
+            expect(profileImage).toBeInTheDocument();
+
    })
     })
   })
