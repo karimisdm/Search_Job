@@ -6,7 +6,6 @@ const companyName = "MyJobMarket"
 const url = "http://careers.google.com"
 const menuItems = [
   "Teams",
-  "Jobs",
   "Locations",
   "Life at MyJobMarket",
   "How we hire",
