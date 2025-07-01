@@ -17,7 +17,7 @@ button {
   @apply border-0 bg-brand-blue-1 text-white hover:shadow-blue;
 }
 .secondary {
-  @apply 
+  @apply bg-transparent text-brand-blue-1 hover:bg-brand-blue-2 hover:text-white
 
 }
 
