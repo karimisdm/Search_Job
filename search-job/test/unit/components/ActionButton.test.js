@@ -16,6 +16,7 @@ describe('ActionButton',()=>{
             name:/Sign in/i
         });
         expect(button).toBeInTheDocument();
+        expect(button).toHaveClass('primary')
         
     });
 

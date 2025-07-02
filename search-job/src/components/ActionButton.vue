@@ -2,7 +2,17 @@
 const handleClick = ()=>{
     console.log("Button Clicked!");
 };
-const props = defineProps(["text","type"]);
+const props = defineProps({
+  text: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: false,
+    default: 'primary'
+  }
+});
 
 const buttonClass = ()=>{
   return{
