@@ -10,8 +10,13 @@ const props = defineProps({
   type: {
     type: String,
     required: false,
-    default: 'primary'
+    default: 'primary',
+     validator(value){
+    return (['primary','secondary'].includes(value));
+
   }
+  },
+ 
 });
 
 const buttonClass = ()=>{
