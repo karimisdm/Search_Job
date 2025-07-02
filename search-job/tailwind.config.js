@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
-export default {
-  content: ["./index.html","./src/**/*.{vue,js,ts,jsx,tsx}"],
+module.exports = {
+  content: ["./index.html","./src/**/*.{vue,css,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily:{
@@ -15,7 +15,6 @@ export default {
       },
       boxShadow: {
         blue: "0 0 3px 3px #4285f4",
-
       }
     },
   },
