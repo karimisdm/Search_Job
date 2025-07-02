@@ -6,8 +6,7 @@ const props = defineProps(["text","type"]);
 
 const buttonClass = ()=>{
   return{
-    primary: props.type === 'primary',
-    secondary: props.type === 'secondary'
+    [props.type]: true,
   }
 }
 
