@@ -2,11 +2,20 @@
 const handleClick = ()=>{
     console.log("Button Clicked!");
 };
-defineProps(["text","type"]);
+const props = defineProps(["text","type"]);
+
+const buttonClass = ()=>{
+  return{
+    primary: props.type === 'primary',
+    secondary: props.type === 'secondary'
+  }
+}
+
 </script>
 
 <template>
-  <button :class="{secondary:!type, primary:type}">{{ text }}</button>
+  <button :class="buttonClass()">{{ text }}</button>
+
 </template>
 
 <style>
