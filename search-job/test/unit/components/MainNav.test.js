@@ -7,19 +7,29 @@ import userEvent from '@testing-library/user-event'
 
 
 describe('MainNav', ()=>{
+    const renderMainNav = () => {
+    render(MainNav, {
+      global: {
+        stubs: {
+          FontAwesomeIcon: true,
+        },
+      },
+    });
+  };
+
     it('renders the component', () => {
-        render(MainNav)
+        renderMainNav();
         expect(screen.getByRole('navigation')).toBeInTheDocument()
     });
     it("displays company name", () => {
-    render(MainNav);
+    renderMainNav();
     const companyName = screen.getByText("MyJobMarket");
     expect(companyName).toBeInTheDocument();
   });
 
   describe('when the user log in',()=>{
     it('display user profile picture',async ()=>{
-        render(MainNav);
+        renderMainNav();
          let profileImage = screen.queryByRole('img',
             {name:/picture of user/i});
             expect(profileImage).not.toBeInTheDocument();

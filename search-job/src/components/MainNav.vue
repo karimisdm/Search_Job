@@ -43,7 +43,7 @@ const loginUser = ()=>{
             <ActionButton v-else text="Sign in"  @click="loginUser()" />
         </div>
       </div>
-      <TheSubNav/>
+      <TheSubNav v-if="!isLoggedIn"/>
     </div>
   </header>
 </template>
