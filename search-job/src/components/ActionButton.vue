@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 const handleClick = ()=>{
     console.log("Button Clicked!");
 };

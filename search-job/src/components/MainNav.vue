@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
+import TheSubNav from '@/components/TheSubNav.vue'
 const companyName = "MyJobMarket"
 const url = "http://careers.google.com"
 const menuItems = [
@@ -42,6 +43,7 @@ const loginUser = ()=>{
             <ActionButton v-else text="Sign in"  @click="loginUser()" />
         </div>
       </div>
+      <TheSubNav/>
     </div>
   </header>
 </template>
