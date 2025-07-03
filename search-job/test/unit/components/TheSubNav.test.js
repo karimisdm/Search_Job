@@ -7,7 +7,9 @@ describe('TheSubNav', ()=>{
     describe('when user is on job page',()=>{
         it('display job count', ()=>{
             render(TheSubNav, {
-                onJobResultsPage: true,
+                props:{
+                    onJobResultsPage: true
+                },
                 global: {
                     stubs: {
                         'font-awesome-icon': true
@@ -22,14 +24,16 @@ describe('TheSubNav', ()=>{
     describe('when user is not on job page', ()=>{
           it('does not display job count', ()=>{
             render(TheSubNav, {
-                onJobResultsPage: false,
+                 props:{
+                    onJobResultsPage: false
+                },
                 global: {
                     stubs:{
                         'font-awesome-icon': true
                     }
                 }
             });
-            const jobCount = screen.queryByText('1459');
+            const jobCount = screen.queryByText('1359');
             expect(jobCount).not.toBeInTheDocument();
         })
 
