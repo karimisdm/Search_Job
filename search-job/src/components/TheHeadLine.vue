@@ -1,6 +1,12 @@
 <script setup>
-import {onMounted} from 'vue'
+import {onMounted,onBeforeMount, onActivated,onBeforeUnmount} from 'vue'
 
+onActivated(()=>{
+    console.log('TheHeadLine component activated')
+});
+onBeforeMount(()=>{
+    console.log('TheHeadLine component before mount')
+})
 onMounted(()=>{
     console.log('TheHeadLine component mounted')
 })

@@ -1,4 +1,5 @@
 <script setup>
+import TheHeadLine from './TheHeadLine.vue';
 </script>
 <template>
     <main>
@@ -8,7 +9,7 @@
                   col 1
                 </div>
                 <div class="col-span-5 col-start-2 border border-blue-400">
-                    col 5
+                    <TheHeadLine/>
 
                 </div>
                 <div class="col-span-5 col-start-7 border border-blue-400">
