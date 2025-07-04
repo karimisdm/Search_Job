@@ -1,8 +1,7 @@
 <script setup>
-import { computed } from 'vue';
-const handleClick = ()=>{
-    console.log("Button Clicked!");
-};
+import { computed, defineEmits } from 'vue';
+
+
 const props = defineProps({
   text: {
     type: String,
