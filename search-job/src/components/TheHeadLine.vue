@@ -1,7 +1,7 @@
 <script setup>
 import {computed, ref} from 'vue'
 import {onMounted,onBeforeMount,onBeforeUnmount} from 'vue'
-import nextElementList from '../utils/nextElementList.js'
+import nextElementList from '@/utils/nextElementList.js'
 
 const action = ref('Build');
 const actions = ['Build','Create','Design','Code'];
