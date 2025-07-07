@@ -607,6 +607,10 @@ video {
   margin-right: auto;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .ml-12 {
   margin-left: 3rem;
 }
@@ -811,6 +815,11 @@ video {
   padding-top: 1rem;
 }
 
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -821,8 +830,25 @@ video {
   line-height: 1.75rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
 .font-medium {
   font-weight: 500;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05em;
 }
 
 .text-brand-blue-1 {
