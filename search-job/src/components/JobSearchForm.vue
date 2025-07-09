@@ -1,5 +1,5 @@
 <script setup>
-
+import ActionButton from './ActionButton.vue';
 
 </script>
 <template>
@@ -17,9 +17,9 @@
             <div class="relative flex flex-1 h-full items-center pl-3">
                 <label class="absolute left-0 -top-10">Where?</label>
                 <input type="text" placeholder="Enter location" class="w-full text-lg font-normal focus:outline-none"/>
-            </div>
-            
+            </div>     
         </div>
+        <ActionButton text="Search" type="secondary" class="rounded-r-3xl"/>
         
     </form>
 </template>

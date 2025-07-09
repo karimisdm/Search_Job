@@ -36,13 +36,13 @@ const buttonClass = ()=>{
 button {
   font-size: medium;
   padding: 7px 14px;
-  border-radius: 5px;
   background-color: #1967d2;
   color: white;
 
 }
 .primary {
-  border: 0;
+  /* border: 0; */
+  border-radius: 5px;
   background-color: #1967d2;
   color: white;
 }
