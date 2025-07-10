@@ -14,7 +14,8 @@ import JobSearchForm from './JobSearchForm.vue';
                     <JobSearchForm/>
 
                 </div>
-                <div class="col-span-5 col-start-7">
+                <div class="col-span-5 col-start-7 self-center justify-self-center">
+                    <img class="h-60 w-60 object-contain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png" alt="Logo for company"/>
                     
 
                 </div>
