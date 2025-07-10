@@ -1,5 +1,10 @@
 <script setup>
 import ActionButton from './ActionButton.vue';
+import { ref } from 'vue';
+
+const role = ref(null);
+const location = ref(null);
+
 
 </script>
 <template>
@@ -8,7 +13,7 @@ import ActionButton from './ActionButton.vue';
         <div class="flex flex-1 h-full flex-nowrap text-base font-light">
             <div class="relative flex flex-1 h-full items-center pr-3">
                 <label class="absolute left-0 -top-10">Role</label>
-                <input type="text" placeholder="Enter job title" class="w-full text-lg font-normal focus:outline-none"/>
+                <input v-model="role" type="text" placeholder="Enter job title" class="w-full text-lg font-normal focus:outline-none"/>
 
             </div>
             <span class="flex h-full items-center border-l border-r border-brand-gray-3 bg-brand-gray-2 px-3">
@@ -16,10 +21,11 @@ import ActionButton from './ActionButton.vue';
             </span>
             <div class="relative flex flex-1 h-full items-center pl-3">
                 <label class="absolute left-0 -top-10">Where?</label>
-                <input type="text" placeholder="Enter location" class="w-full text-lg font-normal focus:outline-none"/>
+                <input v-model="location" type="text" placeholder="Enter location" class="w-full text-lg font-normal focus:outline-none"/>
             </div>     
         </div>
         <ActionButton text="Search" type="secondary" class="rounded-r-3xl"/>
         
     </form>
+    {{ role }}
 </template>

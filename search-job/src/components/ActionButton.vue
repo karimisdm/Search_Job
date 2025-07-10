@@ -35,7 +35,7 @@ const buttonClass = ()=>{
 <style>
 button {
   font-size: medium;
-  padding: 7px 14px;
+  padding: 12px 14px;
   background-color: #1967d2;
   color: white;
 
