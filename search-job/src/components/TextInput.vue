@@ -1,7 +1,7 @@
 <script setup>
 import { defineEmits } from 'vue';
 
-const emit = defineEmits(['UpdatedInput']);
+const emit = defineEmits(['update:modelValue']);
 const props = defineProps({
     modelValue: {
         type: String,
@@ -10,7 +10,7 @@ const props = defineProps({
 })
 
 const HandleInput = (event)=>{
-    emit('UpdatedInput', event.target.value);
+    emit('update:modelValue', event.target.value);
 };
 
 </script>
