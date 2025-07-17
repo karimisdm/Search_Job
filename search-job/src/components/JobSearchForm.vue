@@ -14,18 +14,18 @@ const location = ref(null);
         <div class="flex flex-1 h-full flex-nowrap text-base font-light">
             <div class="relative flex flex-1 h-full items-center pr-3">
                 <label class="absolute left-0 -top-10">Role</label>
-                <TextInput v-model="role" placeholder="Enter job title" />
+                <TextInput @UpdatedInput="role=$event" placeholder="Enter job title" />
             </div>
             <span class="flex h-full items-center border-l border-r border-brand-gray-3 bg-brand-gray-2 px-3">
                 in
             </span>
             <div class="relative flex flex-1 h-full items-center pl-3">
                 <label class="absolute left-0 -top-10">Where?</label>
-                <TextInput v-model="location"  placeholder="Enter Location"/>
+                <TextInput @UpdatedInput="location=$event" placeholder="Enter Location"/>
             </div>     
         </div>
         <ActionButton text="Search" type="secondary" class="rounded-r-3xl"/>
         
     </form>
-    {{ role }}
+    {{ location }}, {{ role }}
 </template>
