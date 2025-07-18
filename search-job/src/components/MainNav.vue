@@ -10,12 +10,12 @@ import { RouterLink } from 'vue-router'
 const companyName = "MyJobMarket"
 
 const menuItems = [
-  "Teams",
-  "Locations",
-  "Life at MyJobMarket",
-  "How we hire",
-  "Students",
-  "Jobs"
+  {text: "Teams", url:"/"},
+  {text: "Locations", url:"/"},
+  {text: "Life at MyJobMarket", url:"/"},
+  {text: "How we hire", url:"/"},
+  {text: "Students", url:"/"},
+  {text: "Jobs", url:"/jobs/results"}
 ];
 const isLoggedIn = ref(false);
 
@@ -42,10 +42,10 @@ const getHeight = computed(()=>{
           <ul class="flex h-full list-none">
             <li
               v-for="item in menuItems"
-              :key="item"
+              :key="item.text"
               class="ml-9 h-full first:ml-0"
             >
-              <a href="" class="flex h-full items-center py-2.5">{{ item }}</a>
+              <RouterLink :to="item.url" class="flex h-full items-center py-2.5">{{ item.text }}</RouterLink>
             </li>
           </ul>
         </nav>

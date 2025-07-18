@@ -1,7 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-const onJobResultsPage = ref(true);
+const route = useRoute();
+
+const onJobResultsPage = computed( ()=>{
+  return route.name === 'JobResults';
+});
 </script>
 <template>
     <div class="w-full h-16 bg-white border-b border-solid border-brand-gray-1">

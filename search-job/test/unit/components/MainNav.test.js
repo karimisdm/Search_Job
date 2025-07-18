@@ -5,12 +5,19 @@ import {render, screen} from '@testing-library/vue'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { RouterLinkStub } from '@vue/test-utils'
+import { nextTick } from 'vue'
 
 
 describe('MainNav', ()=>{
     const renderMainNav = () => {
+      const route = {
+        name:'home'
+      }
     render(MainNav, {
       global: {
+        mocks: {
+          $route: route,
+        },
         stubs: {
           FontAwesomeIcon: true,
           RouterLink: RouterLinkStub,
@@ -39,9 +46,11 @@ describe('MainNav', ()=>{
             name: /Sign In/i
         }) ;
         await userEvent.click(loginButton);
-           profileImage = screen.queryByRole('img',
+
+        profileImage = screen.queryByRole('img',
             {name:/picture of user/i});
             expect(profileImage).toBeInTheDocument();
+             
 
    })
     })
