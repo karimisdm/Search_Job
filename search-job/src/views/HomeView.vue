@@ -1,8 +1,7 @@
-<script setup lang="ts">
+<script setup >
+import TheHero from '@/components/TheHero.vue';
 </script>
 
 <template>
-  <h1 class="text-5xl font-bold">
-    Home Page
-  </h1>
+   <TheHero/>
 </template>
