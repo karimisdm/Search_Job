@@ -4,6 +4,7 @@ import {describe , it , expect} from 'vitest'
 import {render, screen} from '@testing-library/vue'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
+import { RouterLinkStub } from '@vue/test-utils'
 
 
 describe('MainNav', ()=>{
@@ -12,6 +13,7 @@ describe('MainNav', ()=>{
       global: {
         stubs: {
           FontAwesomeIcon: true,
+          RouterLink: RouterLinkStub,
         },
       },
     });

@@ -3,8 +3,12 @@ import { computed, ref } from 'vue'
 import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
 import TheSubNav from '@/components/TheSubNav.vue'
+import { RouterLink } from 'vue-router'
+
+
+
 const companyName = "MyJobMarket"
-const url = "http://careers.google.com"
+
 const menuItems = [
   "Teams",
   "Locations",
@@ -31,9 +35,9 @@ const getHeight = computed(()=>{
   <header :class="['w-full', 'text-sm', getHeight]">
     <div class="fixed top-0 left-0 w-full h-16 bg-white">
       <div class="mx-auto flex flex-nowrap h-full border-b border-solid border-brand-gray-1 px-8">
-        <a :href="url" class="flex h-full items-center text-xl">
+        <RouterLink :to="{name: 'home'}" class="flex h-full items-center text-xl">
           {{ companyName }}
-        </a>
+        </RouterLink>
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
             <li
