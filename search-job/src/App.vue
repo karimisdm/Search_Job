@@ -4,7 +4,8 @@ import TheHero from './components/TheHero.vue';
 </script>
 <template>
   <div>
-    <MainNav/>
-    <TheHero/>
+    <!-- <MainNav/>
+    <TheHero/> -->
+    <router-view/>
   </div>
 </template>
