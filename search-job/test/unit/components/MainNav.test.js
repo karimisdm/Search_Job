@@ -1,11 +1,9 @@
 import {it, describe, expect} from 'vitest'
 import MainNav from '@/components/MainNav.vue'
-import {describe , it , expect} from 'vitest'
 import {render, screen} from '@testing-library/vue'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { RouterLinkStub } from '@vue/test-utils'
-import { nextTick } from 'vue'
 
 
 describe('MainNav', ()=>{
