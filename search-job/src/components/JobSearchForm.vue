@@ -2,14 +2,22 @@
 import ActionButton from './ActionButton.vue';
 import TextInput from '@/components/TextInput.vue'
 import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const role = ref('');
 const location = ref('');
+const router = useRouter();
+
+
+const searchJobs = ()=>{
+    return router.push({name:'JobResults', query:{role, location}})
+
+}
 
 
 </script>
 <template>
-    <form class="flex h-12 w-full items-center rounded-3xl border border-solid border-brand-gray-3">
+    <form @submit.prevent="searchJobs()" class="flex h-12 w-full items-center rounded-3xl border border-solid border-brand-gray-3">
         <font-awesome-icon :icon="['fas','search']" class="ml-4 mr-3"/>
         <div class="flex flex-1 h-full flex-nowrap text-base font-light">
             <div class="relative flex flex-1 h-full items-center pr-3">
