@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import JobFilterSidebar from '@/components/JobFilterSidebar.vue'
-import JobListing from '@/components/JobListing.vue'
+import JobListings from '@/components/JobListings.vue'
 
 const router = useRouter();
 
@@ -14,7 +14,7 @@ const goHome = ()=>{
 <template>
    <div class="flex w-full flex-row flex-nowrap">
     <JobFilterSidebar/>
-    <JobListing/>
+    <JobListings/>
 
    </div>
          
