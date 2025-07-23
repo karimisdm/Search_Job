@@ -1,6 +1,8 @@
 <script setup>
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
+import JobFilterSidebar from '@/components/JobFilterSidebar.vue'
+import JobListing from '@/components/JobListing.vue'
 
 const router = useRouter();
 
@@ -11,8 +13,9 @@ const goHome = ()=>{
 </script>
 <template>
     <h2>
-        Job Results Page
+        <JobFilterSidebar/>
+        <JobListing/>
     </h2>
-    <button @click="goHome">go to home</button>
+    
    
 </template>
