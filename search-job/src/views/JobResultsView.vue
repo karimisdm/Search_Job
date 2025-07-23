@@ -12,10 +12,11 @@ const goHome = ()=>{
 
 </script>
 <template>
-    <h2>
-        <JobFilterSidebar/>
-        <JobListing/>
-    </h2>
-    
+   <div class="flex w-full flex-row flex-nowrap">
+    <JobFilterSidebar/>
+    <JobListing/>
+
+   </div>
+         
    
 </template>
