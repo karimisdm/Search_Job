@@ -1,13 +1,16 @@
 <script setup>
 import JobListing from '@/components/JobListing.vue'
 import axios from 'axios';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
-const url="http://localhost:3000/jobs"
+
+const url="http://localhost:3000/jobs";
+const jobs = ref([]);
 
 const fetchJobs = async()=>{
     const response = await axios.get(url);
-    console.log(response.data);
+    jobs.value = response.data;
+    console.log(jobs.value);
 };
 
 onMounted(()=>{
@@ -19,9 +22,8 @@ onMounted(()=>{
 <template>
     <main class="flex-auto bg-brand-gray-2 p-8">
         <ol>
-          <job-listing/>
-          <job-listing/>
-          <job-listing/>
+          <job-listing v-for="job in jobs" :key="job.id" :job="job"/>
+          
         </ol>
     </main>
 </template>
