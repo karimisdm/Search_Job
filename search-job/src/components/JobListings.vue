@@ -1,7 +1,7 @@
 <script setup>
 import JobListing from '@/components/JobListing.vue'
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 
 const url="http://localhost:3000/jobs";
@@ -16,14 +16,17 @@ const fetchJobs = async()=>{
 onMounted(()=>{
     fetchJobs();
 });
+const displayJobs = computed(()=>{
+    return jobs.value.slice(0,10);
+});
 
 
 </script>
 <template>
     <main class="flex-auto bg-brand-gray-2 p-8">
         <ol>
-          <job-listing v-for="job in jobs" :key="job.id" :job="job"/>
-          
+          <job-listing v-for="job in displayJobs" :key="job.id" :job="job"/>
+
         </ol>
     </main>
 </template>
