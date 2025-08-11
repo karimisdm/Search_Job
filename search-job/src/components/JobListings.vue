@@ -2,10 +2,12 @@
 import JobListing from '@/components/JobListing.vue'
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 
 const url="http://localhost:3000/jobs";
 const jobs = ref([]);
+const route = useRoute();
 
 const fetchJobs = async()=>{
     const response = await axios.get(url);
@@ -17,7 +19,13 @@ onMounted(()=>{
     fetchJobs();
 });
 const displayJobs = computed(()=>{
-    return jobs.value.slice(0,10);
+    const numberOfPages = route.query.page ? Number(route.query.page):1;
+    const startIndex = (numberOfPages-1)*10;
+    const endIndex = numberOfPages * 10;
+    if(startIndex >= jobs.value.length){
+      return [];
+    }
+    return jobs.value.slice(startIndex, endIndex);
 });
 
 
