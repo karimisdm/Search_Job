@@ -18,6 +18,12 @@ const fetchJobs = async()=>{
 onMounted(()=>{
     fetchJobs();
 });
+
+const currentPage = computed(()=>{
+    return route.query.page ? Number(route.query.page): 1;
+})
+
+
 const displayJobs = computed(()=>{
     const numberOfPages = route.query.page ? Number(route.query.page):1;
     const startIndex = (numberOfPages-1)*10;
@@ -36,5 +42,10 @@ const displayJobs = computed(()=>{
           <job-listing v-for="job in displayJobs" :key="job.id" :job="job"/>
 
         </ol>
+        <div class="mx-auto mt-8">
+            <div class="flex flex-row flex-nowrap">
+                <p class="flex-grow text-sm">Page {{ currentPage }}</p>
+            </div>
+        </div>
     </main>
 </template>
