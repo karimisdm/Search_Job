@@ -27,7 +27,7 @@ describe("JobListings", () => {
         stubs: { RouterLink: RouterLinkStub },
       },
     });
-    expect(axios.get).toHaveBeenCalledWith("http://localhost:3000/jobs");
+    expect(axios.get).toHaveBeenCalledWith("http://fakeapi.com/jobs");
   });
 
   it("display maximum ten jobs", async () => {
@@ -113,8 +113,8 @@ describe("when user is on last page", ()=>{
     await screen.findAllByRole("listitem");
     const previousLink = screen.queryByRole('link', {name: /Previous/i});
     expect(previousLink).toBeInTheDocument();
-  });
-});
+  })
+})
 
 });
 

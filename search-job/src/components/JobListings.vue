@@ -5,12 +5,13 @@ import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 
-const url="http://localhost:3000/jobs";
+// const url="http://localhost:3000/jobs";
 const jobs = ref([]);
 const route = useRoute();
 
 const fetchJobs = async()=>{
-    const response = await axios.get(url);
+    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const response = await axios.get(`${baseUrl}/jobs`);
     jobs.value = response.data;
     console.log(jobs.value);
 };
