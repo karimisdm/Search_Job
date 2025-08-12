@@ -89,8 +89,32 @@ describe("show link to next page", ()=>{
     const nextLink = screen.queryByRole('link', {name: /Next/i});
     expect(nextLink).toBeInTheDocument();
   })
+});
 
-})
+describe("when user is on last page", ()=>{
+  it("does not show link to next page ", async()=>{
+    routeQuery = {page: '2'};
+    render(JobListings, {
+      global: {
+        stubs:{ RouterLink: RouterLinkStub},     
+      }
+    });
+    await screen.findAllByRole("listitem");
+    const nextLink = screen.queryByRole('link', {name: /Next/i});
+    expect(nextLink).not.toBeInTheDocument();
+  });
+  it("show link to previous page", async()=>{
+    routeQuery = {page:'2'};
+    render(JobListings, {
+      global: {
+        stubs: {RouterLink: RouterLinkStub}
+      }
+    });
+    await screen.findAllByRole("listitem");
+    const previousLink = screen.queryByRole('link', {name: /Previous/i});
+    expect(previousLink).toBeInTheDocument();
+  });
+});
 
 });
 
