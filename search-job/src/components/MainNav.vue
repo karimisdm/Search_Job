@@ -4,7 +4,9 @@ import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
 import TheSubNav from '@/components/TheSubNav.vue'
 import { RouterLink } from 'vue-router'
+import { useUserStore } from '@/stores/user';
 
+const userStore = useUserStore();
 
 
 const companyName = "MyJobMarket"
@@ -17,15 +19,15 @@ const menuItems = [
   {text: "Students", url:"/"},
   {text: "Jobs", url:"/jobs/results"}
 ];
-const isLoggedIn = ref(false);
+
 
 const loginUser = ()=>{
-    isLoggedIn.value = true;
+    userStore.loginUser();
 }
 const getHeight = computed(()=>{
    return{
-    'h-16': !isLoggedIn.value,
-    'h-32': isLoggedIn.value
+    'h-16': !userStore.isLoggedIn,
+    'h-32': userStore.isLoggedIn
    }
 }
 )
@@ -50,11 +52,11 @@ const getHeight = computed(()=>{
           </ul>
         </nav>
         <div class="ml-auto flex h-full items-center">
-            <ProfileImage v-if="isLoggedIn"/>
+            <ProfileImage v-if="userStore.isLoggedIn"/>
             <ActionButton v-else text="Sign in"  @click="loginUser()" />
         </div>
       </div>
-      <TheSubNav v-if="isLoggedIn"/>
+      <TheSubNav v-if="userStore.isLoggedIn"/>
     </div>
   </header>
 </template>
