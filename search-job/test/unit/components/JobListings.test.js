@@ -39,9 +39,8 @@ describe("JobListings", () => {
     const jobListings = await screen.findAllByRole("listitem");
     expect(jobListings).toHaveLength(10);
   });
-});
 
-describe("when params exclude page number", () => {
+  describe("when params exclude page number", () => {
   it("display page number 1", () => {
     routeQuery = { page: null };
     render(JobListings, {
@@ -64,3 +63,36 @@ describe("when params include page number", () => {
     expect(screen.getByText("Page 4")).toBeInTheDocument();
   });
 });
+
+describe("when user is on first page",()=>{
+  it("does not display previous  page link", async()=>{
+    routeQuery = {page: '1'};
+    render(JobListings, {
+      global: {
+        stubs:{ RouterLink: RouterLinkStub},     
+      }
+    });
+    await screen.findAllByRole("listitem");
+    const previousLink = screen.queryByRole('link', {name: /Previous/i});
+    expect(previousLink).not.toBeInTheDocument();
+  })
+});
+describe("show link to next page", ()=>{
+  it("when user is on first page", async()=>{
+    routeQuery = {page: '1'};
+    render(JobListings, {
+      global: {
+        stubs:{ RouterLink: RouterLinkStub},     
+      }
+    });
+    await screen.findAllByRole("listitem");
+    const nextLink = screen.queryByRole('link', {name: /Next/i});
+    expect(nextLink).toBeInTheDocument();
+  })
+
+})
+
+});
+
+
+
