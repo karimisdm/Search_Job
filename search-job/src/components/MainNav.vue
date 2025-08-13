@@ -1,12 +1,15 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed} from 'vue'
 import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
 import TheSubNav from '@/components/TheSubNav.vue'
 import { RouterLink } from 'vue-router'
 import { useUserStore } from '@/stores/user';
+import { storeToRefs } from 'pinia'
 
 const userStore = useUserStore();
+const {isLoggedIn} = storeToRefs(userStore);
+const {loginUser} = userStore;
 
 
 const companyName = "MyJobMarket"
@@ -20,14 +23,10 @@ const menuItems = [
   {text: "Jobs", url:"/jobs/results"}
 ];
 
-
-const loginUser = ()=>{
-    userStore.loginUser();
-}
 const getHeight = computed(()=>{
    return{
-    'h-16': !userStore.isLoggedIn,
-    'h-32': userStore.isLoggedIn
+    'h-16': !isLoggedIn,
+    'h-32': isLoggedIn
    }
 }
 )
@@ -53,7 +52,7 @@ const getHeight = computed(()=>{
         </nav>
         <div class="ml-auto flex h-full items-center">
             <ProfileImage v-if="userStore.isLoggedIn"/>
-            <ActionButton v-else text="Sign in"  @click="loginUser()" />
+            <ActionButton v-else text="Sign in"  @click="loginUser" />
         </div>
       </div>
       <TheSubNav v-if="userStore.isLoggedIn"/>
