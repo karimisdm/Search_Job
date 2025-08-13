@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/vue';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { RouterLinkStub } from '@vue/test-utils';
+import {createTestingPinia} from '@pinia/testing';
 
 // Mock useRoute for Composition API
 vi.mock('vue-router', () => ({
@@ -15,8 +16,10 @@ vi.mock('vue-router', () => ({
 
 describe('MainNav', () => {
   const renderMainNav = () => {
+    const pinia = createTestingPinia({stubActions: false});
     render(MainNav, {
       global: {
+        plugins: [pinia],
         stubs: {
           FontAwesomeIcon: true,
           RouterLink: RouterLinkStub,
