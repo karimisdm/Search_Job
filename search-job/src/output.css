@@ -625,6 +625,11 @@ video {
   margin-right: auto;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mb-14 {
   margin-bottom: 3.5rem;
 }
@@ -813,6 +818,10 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .self-center {
   align-self: center;
 }
@@ -966,6 +975,10 @@ video {
 
 .pb-20 {
   padding-bottom: 5rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 
 .pl-3 {
