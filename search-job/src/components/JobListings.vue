@@ -2,7 +2,7 @@
 import JobListing from '@/components/JobListing.vue'
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute} from 'vue-router';
 
 
 // const url="http://localhost:3000/jobs";

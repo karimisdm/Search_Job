@@ -3,7 +3,6 @@ import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom'
 import getJobs from '@/api/getJobs.js'
 import { beforeEach } from 'vitest';
-import { title } from 'process';
 
 vi.mock('axios');
  describe("getJobs", ()=>{
