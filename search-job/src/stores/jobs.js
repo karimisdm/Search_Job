@@ -1,12 +1,23 @@
+// jobsStore.js
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import getJobs from '@/api/getJobs.js';
 
-export const useJobsStore = defineStore("jobs", ()=>{
+export const FETCH_JOBS = async () => {
+    const response = await getJobs();
+    return response;
+};
 
+export const useJobsStore = defineStore("jobs", () => {
     const jobs = ref([]);
 
-    return{
-        jobs,
+    const fetchJobsAndStore = async () => {
+        jobs.value = await FETCH_JOBS();
+        return jobs.value;
+    };
 
-    }
-})
+    return {
+        jobs,
+        fetchJobsAndStore
+    };
+});

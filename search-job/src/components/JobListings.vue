@@ -1,18 +1,17 @@
 <script setup>
 import JobListing from '@/components/JobListing.vue'
-import axios from 'axios';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted} from 'vue';
 import { useRoute} from 'vue-router';
+import {useJobsStore} from '@/stores/jobs.js';
+import { storeToRefs } from 'pinia';
 
 
-// const url="http://localhost:3000/jobs";
-const jobs = ref([]);
+const jobsStore = useJobsStore();
+const {jobs} = storeToRefs(jobsStore);
 const route = useRoute();
 
 const fetchJobs = async()=>{
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
-    const response = await axios.get(`${baseUrl}/jobs`);
-    jobs.value = response.data;
+    await jobsStore.fetchJobsAndStore();
     console.log(jobs.value);
 };
 
