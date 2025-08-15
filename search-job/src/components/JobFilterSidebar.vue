@@ -13,7 +13,8 @@ import CollapsibleAccordion from './CollapsibleAccordion.vue';
             <action-button text="Clear Filters" type="secondary"/>
           </div>
         </div>
-        <collapsible-accordion>
+      
+        <collapsible-accordion header="Organization">
            <div class="mt-5">
              <fieldset>
               <ul class="flex flex-row flex-wrap">

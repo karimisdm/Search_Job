@@ -25,8 +25,8 @@ const menuItems = [
 
 const getHeight = computed(()=>{
    return{
-    'h-16': !isLoggedIn,
-    'h-32': isLoggedIn
+    'h-16': !isLoggedIn.value,
+    'h-32': isLoggedIn.value
    }
 }
 )
