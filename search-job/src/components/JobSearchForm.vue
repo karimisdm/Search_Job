@@ -2,7 +2,7 @@
 import ActionButton from './ActionButton.vue';
 import TextInput from '@/components/TextInput.vue'
 import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const role = ref('');
 const location = ref('');

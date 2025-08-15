@@ -1,5 +1,6 @@
 <script setup>
 import ActionButton from '@/components/ActionButton.vue';
+import CollapsibleAccordion from './CollapsibleAccordion.vue';
 </script>
 <template>
     <div
@@ -11,8 +12,8 @@ import ActionButton from '@/components/ActionButton.vue';
           <div class="flex item-center text-sm">
             <action-button text="Clear Filters" type="secondary"/>
           </div>
-
         </div>
+        <collapsible-accordion/>
     </section>
 
 
