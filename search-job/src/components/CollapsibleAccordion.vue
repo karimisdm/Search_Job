@@ -20,13 +20,10 @@ const selectIcon = computed(() =>
 
 </script>
 
-
-
-
 <template>
  <div class="border-b border-solid border-brand-gray-2 py-5">
     <div class="flex cursor-pointer flex-wrap items-center justify-between"
-       @click="open">
+       @click="open" role="button">
         <h3 class="text-base font-semibold">{{ props.header }}</h3>
         <font-awesome-icon :icon="selectIcon"/>
     </div>
