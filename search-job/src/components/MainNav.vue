@@ -15,7 +15,7 @@ const {loginUser} = userStore;
 const companyName = "MyJobMarket"
 
 const menuItems = [
-  {text: "Teams", url:"/"},
+  {text: "Teams", url:"/teams"},
   {text: "Locations", url:"/"},
   {text: "Life at MyJobMarket", url:"/"},
   {text: "How we hire", url:"/"},
