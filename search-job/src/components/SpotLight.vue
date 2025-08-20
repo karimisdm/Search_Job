@@ -1,0 +1,30 @@
+<script setup>
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+const baseUrl = import.meta.env.VITE_APP_API_URL;
+const url = `${baseUrl}/spotlights`;
+const spotLights = ref([]);
+
+const fetchSpots = async()=>{
+    const response = await axios.get(url);
+    spotLights.value = response.data;
+    return spotLights.value;
+}
+
+onMounted(()=>{
+    fetchSpots();
+})
+
+</script>
+<template>
+    <div>
+        <ul>
+            <li v-for="spotlight in spotLights" :key="spotlight.id">
+                <h3>{{ spotlight.title }}</h3>
+                <p>{{ spotlight.description }}</p>
+            </li>
+        </ul>
+    </div>
+
+</template>
