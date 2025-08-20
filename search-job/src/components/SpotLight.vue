@@ -18,12 +18,10 @@ onMounted(()=>{
 
 </script>
 <template>
-    <div>
         <ul>
             <li v-for="spotlight in spotLights" :key="spotlight.id">
                 <slot :spotlight="spotlight"></slot>
             </li>
         </ul>
-    </div>
 
 </template>

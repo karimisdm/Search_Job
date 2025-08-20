@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import HeaderContainer from '@/components/HeaderContainer.vue';
 </script>
 <template>
