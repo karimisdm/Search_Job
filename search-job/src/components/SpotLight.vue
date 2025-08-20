@@ -21,8 +21,7 @@ onMounted(()=>{
     <div>
         <ul>
             <li v-for="spotlight in spotLights" :key="spotlight.id">
-                <h3>{{ spotlight.title }}</h3>
-                <p>{{ spotlight.description }}</p>
+                <slot :spotlight="spotlight"></slot>
             </li>
         </ul>
     </div>
