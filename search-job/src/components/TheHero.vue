@@ -23,17 +23,17 @@ import SpotLight from './SpotLight.vue';
             </div>
         </section>
         <spot-light class="flex flex-row justify-center pb-16">
-          <template #default="slotProps">
+          <template #default="{img, title, description}">
             <RouterLink to="jobs/results" class="mx-5 flex flex-col w-72 h-96 rounded-lg border bg-brand-gray-1">
-                <img :src="slotProps.spotlight.img" class="object-contain" alt="spotlight image"/>
+                <img :src="img" class="object-contain" alt="spotlight image"/>
                 <div class="mt-3 h-48 px-6 py-4">
 
                     <h3 class="text-lg font-medium">
-                        {{ slotProps.spotlight.title }}
+                        {{ title }}
                     </h3>
 
                     <p class="mt-3 text-sm">
-                        {{ slotProps.spotlight.description }}
+                        {{ description }}
                     </p>
                 </div>
                 <RouterLink to="jobs/results" class="px-6 pb-4 text-sm text-brand-blue-1">
