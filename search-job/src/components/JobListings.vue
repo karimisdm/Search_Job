@@ -12,7 +12,7 @@ const route = useRoute();
 
 const fetchJobs = async()=>{
     await jobsStore.fetchJobsAndStore();
-    console.log(jobs.value);
+    // console.log(jobs.value);
 };
 
 onMounted(()=>{

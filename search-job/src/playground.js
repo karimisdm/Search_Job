@@ -1,10 +1,8 @@
-import axios from "axios";
 
-const url= "http://localhost:3000/jobs"
-
-const fetchJobs = async()=>{
-    const response = await axios.get(url);
-    console.log(response.data);
-};
-
-fetchJobs();
+const number = new Set();
+number.add(12);
+number.add(6);
+number.add(4);
+number.add(46);
+number.add(12);
+console.log(number);
