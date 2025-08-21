@@ -1,5 +1,12 @@
 <script setup>
  import CollapsibleAccordion from "@/components/CollapsibleAccordion.vue";
+ import {useJobsStore} from "@/stores/jobs.js";
+import { computed } from "vue";
+
+ const jobsStore = useJobsStore();
+ const Organizations = computed(()=>{
+     return jobsStore.getOrganizationOfJobs();
+ });
 
 </script>
 <template>
@@ -23,11 +30,8 @@
                   <label for="Between Vue and me">Between Vue and me</label>
                 </li>
               </ul>
-
-
              </fieldset>
-
-
            </div>
         </collapsible-accordion>
+        {{ Organizations }}
 </template>
