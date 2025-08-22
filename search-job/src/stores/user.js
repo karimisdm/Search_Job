@@ -4,21 +4,21 @@ import { ref } from 'vue';
 export const useUserStore = defineStore('user',()=>{
 
     const isLoggedIn = ref(false);
-    const selectedOrganizations = ref([]);
+    const selectedOrgs = ref([]);
     
     const loginUser = ()=>{
         isLoggedIn.value = true;
     }
     const AddSelectedOrganization = (organization)=>{
-        if(!selectedOrganizations.value.includes(organization)){
-           selectedOrganizations.value.push(organization);
+        if(!selectedOrgs.value.includes(organization)){
+           selectedOrgs.value.push(organization);
         }
         
     }
 
     return { isLoggedIn,
          loginUser, 
-         selectedOrganizations,
+         selectedOrgs,
         AddSelectedOrganization,
      }
 })
