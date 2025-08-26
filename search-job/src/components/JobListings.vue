@@ -1,15 +1,17 @@
 <script setup>
 import JobListing from '@/components/JobListing.vue'
-import { computed, onMounted} from 'vue';
+import { computed, onMounted, ref} from 'vue';
 import { useRoute} from 'vue-router';
 import {useJobsStore} from '@/stores/jobs.js';
 import { storeToRefs } from 'pinia';
+import {useUserStore} from "@/stores/user.js";
 
 
+const  userStore = useUserStore();
+const {selectedOrgs}= storeToRefs(userStore);
 const jobsStore = useJobsStore();
 const {jobs} = storeToRefs(jobsStore);
 const route = useRoute();
-
 
 
 const fetchJobs = async()=>{
@@ -21,6 +23,21 @@ onMounted(()=>{
     fetchJobs();
 });
 
+const organizations = computed(()=> jobsStore.getOrganizationsOfJobs());
+
+const filteredJobs = computed(() => {
+  if (selectedOrgs.value.length === 0) return jobs.value;
+  return jobs.value.filter(job =>
+    Array.isArray(job.organizations)
+      ? job.organizations.some(org => selectedOrgs.value.includes(org))
+      : selectedOrgs.value.includes(job.organizations)
+  );
+});
+
+
+
+
+
 const currentPage = computed(()=>{
     return route.query.page ? Number(route.query.page): 1;
 });
@@ -28,7 +45,7 @@ const previousPage = computed(()=>{
     return currentPage.value > 1 ? currentPage.value - 1 :null;
 });
 const nextPage = computed(()=>{
-    return currentPage.value < Math.ceil(jobs.value.length / 10)? currentPage.value + 1 : null;
+    return currentPage.value < Math.ceil(filteredJobs.value.length / 10)? currentPage.value + 1 : null;
 });
 
 
@@ -36,10 +53,10 @@ const displayJobs = computed(()=>{
     const numberOfPages = currentPage.value;
     const startIndex = (numberOfPages-1)*10;
     const endIndex = numberOfPages * 10;
-    if(startIndex >= jobs.value.length){
+    if(startIndex >= filteredJobs.value.length){
       return [];
     }
-    return jobs.value.slice(startIndex, endIndex);
+    return filteredJobs.value.slice(startIndex, endIndex);
 });
 
 
