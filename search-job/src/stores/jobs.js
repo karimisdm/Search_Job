@@ -22,6 +22,7 @@ export const useJobsStore = defineStore("jobs", () => {
     return {
         jobs,
         fetchJobsAndStore,
-        getOrganizationOfJobs
+        getOrganizationOfJobs,
+        organizationOfJobs
     };
 });

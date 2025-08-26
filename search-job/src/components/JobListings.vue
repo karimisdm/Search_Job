@@ -10,6 +10,8 @@ const jobsStore = useJobsStore();
 const {jobs} = storeToRefs(jobsStore);
 const route = useRoute();
 
+
+
 const fetchJobs = async()=>{
     await jobsStore.fetchJobsAndStore();
     // console.log(jobs.value);
