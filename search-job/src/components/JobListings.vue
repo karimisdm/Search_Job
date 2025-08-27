@@ -3,14 +3,14 @@ import JobListing from '@/components/JobListing.vue'
 import { computed, onMounted, ref} from 'vue';
 import { useRoute} from 'vue-router';
 import {useJobsStore} from '@/stores/jobs.js';
-import { storeToRefs } from 'pinia';
-import {useUserStore} from "@/stores/user.js";
+// import { storeToRefs } from 'pinia';
 
 
-const  userStore = useUserStore();
-const {selectedOrgs}= storeToRefs(userStore);
+
+// const  userStore = useUserStore();
+// const {selectedOrgs}= storeToRefs(userStore);
 const jobsStore = useJobsStore();
-const {jobs} = storeToRefs(jobsStore);
+// const {jobs} = storeToRefs(jobsStore);
 const route = useRoute();
 
 
@@ -18,21 +18,24 @@ const fetchJobs = async()=>{
     await jobsStore.fetchJobsAndStore();
     // console.log(jobs.value);
 };
+const filteredJobs = computed(()=>{
+    return jobsStore.filterJobsByOrganization();
+})
 
 onMounted(()=>{
     fetchJobs();
 });
 
-const organizations = computed(()=> jobsStore.getOrganizationsOfJobs());
+// const organizations = computed(()=> jobsStore.getOrganizationsOfJobs());
 
-const filteredJobs = computed(() => {
-  if (selectedOrgs.value.length === 0) return jobs.value;
-  return jobs.value.filter(job =>
-    Array.isArray(job.organizations)
-      ? job.organizations.some(org => selectedOrgs.value.includes(org))
-      : selectedOrgs.value.includes(job.organizations)
-  );
-});
+// const filteredJobs = computed(() => {
+//   if (selectedOrgs.value.length === 0) return jobs.value;
+//   return jobs.value.filter(job =>
+//     Array.isArray(job.organizations)
+//       ? job.organizations.some(org => selectedOrgs.value.includes(org))
+//       : selectedOrgs.value.includes(job.organizations)
+//   );
+// });
 
 
 

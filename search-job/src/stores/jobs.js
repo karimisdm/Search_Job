@@ -2,7 +2,8 @@
 import { defineStore } from "pinia";
 import { ref} from "vue";
 import getJobs from '@/api/getJobs.js';
-
+import { useUserStore } from "./user";
+import { storeToRefs } from "pinia";
 
 export const useJobsStore = defineStore("jobs", () => {
     const jobs = ref([]);
@@ -19,10 +20,24 @@ export const useJobsStore = defineStore("jobs", () => {
         return [...organizationOfJobs.value];
     };
 
+    const filterJobsByOrganization = ()=>{
+        const userStore = useUserStore();
+         const {selectedOrgs} = storeToRefs(userStore);
+         if(selectedOrgs.length === 0){
+             return jobs.value;
+         }
+         
+         return jobs.value.filter(job => selectedOrgs.value.includes(job.organization));
+    }
+
+
+
+
     return {
         jobs,
         fetchJobsAndStore,
         getOrganizationOfJobs,
-        organizationOfJobs
+        organizationOfJobs,
+        filterJobsByOrganization
     };
 });
