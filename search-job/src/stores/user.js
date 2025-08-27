@@ -5,6 +5,7 @@ export const useUserStore = defineStore('user',()=>{
 
     const isLoggedIn = ref(false);
     const selectedOrgs = ref([]);
+    const selectedTypes = ref([]);
     
     const loginUser = ()=>{
         isLoggedIn.value = true;
@@ -14,11 +15,17 @@ export const useUserStore = defineStore('user',()=>{
            selectedOrgs.value.push(organization);
         }
         
+    };
+    const AddSelectedTypes = (jobType)=>{
+        if(!selectedTypes.value.includes(jobType)){
+            selectedTypes.value.push(jobType);
+        }
     }
 
     return { isLoggedIn,
          loginUser, 
          selectedOrgs,
         AddSelectedOrganization,
+        AddSelectedTypes
      }
 })
