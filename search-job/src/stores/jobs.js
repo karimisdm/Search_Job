@@ -23,10 +23,10 @@ export const useJobsStore = defineStore("jobs", () => {
     const filterJobsByOrganization = ()=>{
         const userStore = useUserStore();
          const {selectedOrgs} = storeToRefs(userStore);
-         if(selectedOrgs.length === 0){
+         if(selectedOrgs.value.length === 0){
              return jobs.value;
          }
-         
+
          return jobs.value.filter(job => selectedOrgs.value.includes(job.organization));
     }
 
