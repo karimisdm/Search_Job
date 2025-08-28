@@ -44,6 +44,25 @@ export const useJobsStore = defineStore("jobs", () => {
     };
 
 
+    const filteredJobs = ()=>{
+        const userStore = useUserStore();
+        const {selectedOrgs, selectedTypes} = storeToRefs(userStore);
+
+        if(selectedOrgs.value.length === 0 && selectedTypes.value.length === 0){
+            return jobs.value;
+        }
+
+        return jobs.value.filter(job => {
+            const orgMatch = selectedOrgs.value.length === 0 || selectedOrgs.value.includes(job.organization);
+            const typeMatch = selectedTypes.value.length === 0 || selectedTypes.value.includes(job.jobType);
+            return orgMatch && typeMatch;
+        });
+    };
+
+
+   
+
+
 
     const getUniqueJobTypes = () => {
         return [...uniqueJobTypes.value];
@@ -56,6 +75,7 @@ export const useJobsStore = defineStore("jobs", () => {
         organizationOfJobs,
         filterJobsByOrganization,
         getUniqueJobTypes,
-        filterJobsByType
+        filterJobsByType,
+        filteredJobs
     };
 });

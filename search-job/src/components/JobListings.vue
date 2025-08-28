@@ -15,7 +15,7 @@ const fetchJobs = async()=>{
    
 };
 const filteredJobs = computed(()=>{
-    return jobsStore.filterJobsByOrganization();
+    return jobsStore.filteredJobs();
 })
 
 onMounted(()=>{

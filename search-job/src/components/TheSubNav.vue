@@ -11,7 +11,7 @@ const onJobResultsPage = computed( ()=>{
 });
 
 const getCountOfJobs = computed(()=>{
-    return jobsStore.filterJobsByOrganization();
+    return jobsStore.filteredJobs();
 })
 </script>
 <template>

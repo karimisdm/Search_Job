@@ -21,9 +21,9 @@ const handleChanges = ()=>{
     <CollapsibleAccordion header = "JobTypes">
         <div class="mt-5">
             <fieldset>
-                <ul>
-                    <li v-for="jobType in jobTypes" :key="jobType">
-                        <input :id="jobType" type="checkbox" v-model="selectedTypes" :value="jobType" @change="handleChanges"/>
+                <ul class="flex flex-row flex-wrap">
+                    <li v-for="jobType in jobTypes" :key="jobType" class="h-8 w-1/2">
+                        <input :id="jobType" type="checkbox" v-model="selectedTypes" :value="jobType" @change="handleChanges" class="mr-3"/>
                         <label :for="jobType">{{ jobType }}</label>
                     </li>
                 </ul>
