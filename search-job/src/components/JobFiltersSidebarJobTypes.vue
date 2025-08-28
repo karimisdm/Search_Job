@@ -4,6 +4,9 @@ import CollapsibleAccordion from './CollapsibleAccordion.vue';
 import {useJobsStore} from '@/stores/jobs.js';
 import {useUserStore} from '@/stores/user.js';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const jobsStore = useJobsStore();
 const userStore = useUserStore();
@@ -15,6 +18,7 @@ const jobTypes = computed(()=>{
 
 const handleChanges = ()=>{
     console.log(selectedTypes.value);
+    router.push({name: 'JobResults'});
 }
 </script>
 <template>

@@ -4,6 +4,9 @@
 import { computed} from "vue";
 import {useUserStore} from "@/stores/user.js";
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
  const jobsStore = useJobsStore();
  const userStore = useUserStore();
@@ -17,6 +20,8 @@ import { storeToRefs } from "pinia";
 
  const handleChanges = ()=>{
    console.log(selectedOrgs.value);
+   
+   router.push({name:'JobResults'});
  }
 
 </script>
