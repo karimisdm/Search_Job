@@ -26,6 +26,7 @@ export const useUserStore = defineStore('user',()=>{
          loginUser, 
          selectedOrgs,
         AddSelectedOrganization,
-        AddSelectedTypes
+        AddSelectedTypes,
+        selectedTypes
      }
 })

@@ -2,6 +2,7 @@
 import ActionButton from '@/components/ActionButton.vue';
 import CollapsibleAccordion from './CollapsibleAccordion.vue';
 import JobFilterSidebarOrganizations from './JobFilterSidebarOrganizations.vue';
+import JobFiltersSidebarJobTypes from '@/components/JobFiltersSidebarJobTypes.vue'
 </script>
 <template>
     <div
@@ -14,7 +15,7 @@ import JobFilterSidebarOrganizations from './JobFilterSidebarOrganizations.vue';
             <action-button text="Clear Filters" type="secondary"/>
           </div>
         </div>
-        <collapsible-accordion header="Types"/>
+        <job-filters-sidebar-job-types />
         <job-filter-sidebar-organizations />
     </section>
 

@@ -34,5 +34,4 @@ import { storeToRefs } from "pinia";
              </fieldset>
            </div>
         </collapsible-accordion>
-        {{ selectedOrgs }}
 </template>

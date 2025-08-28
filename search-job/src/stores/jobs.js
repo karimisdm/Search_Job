@@ -8,11 +8,15 @@ import { storeToRefs } from "pinia";
 export const useJobsStore = defineStore("jobs", () => {
     const jobs = ref([]);
     const organizationOfJobs = ref(new Set());
+    const uniqueJobTypes = ref(new Set());
 
     const fetchJobsAndStore = async () => {
         const response = await getJobs();
         jobs.value = response;
-        jobs.value.forEach(job => organizationOfJobs.value.add(job.organization));
+        jobs.value.forEach(job => {
+            organizationOfJobs.value.add(job.organization);
+            uniqueJobTypes.value.add(job.jobType);
+        });
         return jobs.value;
     };
 
@@ -28,16 +32,30 @@ export const useJobsStore = defineStore("jobs", () => {
          }
 
          return jobs.value.filter(job => selectedOrgs.value.includes(job.organization));
-    }
+    };
+
+    const filterJobsByType = ()=>{
+        const userStore = useUserStore();
+        const {selectedTypes} = storeToRefs(userStore);
+        if(selectedTypes.value.length === 0){
+            return jobs.value;
+        }
+        return jobs.value.filter(job => selectedTypes.value.includes(job.jobType));
+    };
 
 
 
+    const getUniqueJobTypes = () => {
+        return [...uniqueJobTypes.value];
+    };
 
     return {
         jobs,
         fetchJobsAndStore,
         getOrganizationOfJobs,
         organizationOfJobs,
-        filterJobsByOrganization
+        filterJobsByOrganization,
+        getUniqueJobTypes,
+        filterJobsByType
     };
 });
