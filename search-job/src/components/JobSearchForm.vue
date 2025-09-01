@@ -10,7 +10,7 @@ const router = useRouter();
 
 
 const searchJobs = ()=>{
-    return router.push({name:'JobResults', query:{role, location}})
+    return router.push({name:'JobResults', query:{role: role.value, location: location.value}})
 
 }
 
@@ -35,6 +35,4 @@ const searchJobs = ()=>{
         <ActionButton text="Search" type="secondary" class="rounded-r-3xl"/>
         
     </form>
-    {{ location }} 
-    {{ role }}
 </template>
