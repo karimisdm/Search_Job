@@ -46,8 +46,6 @@ describe('MainNav', () => {
       expect(profileImage).not.toBeInTheDocument();
       const loginButton = screen.getByRole('button', { name: /Sign In/i });
       await userEvent.click(loginButton);
-      // Wait for DOM update if needed
-      // import { nextTick } from 'vue'; await nextTick();
       profileImage = screen.queryByRole('img', { name: /picture of user/i });
       expect(profileImage).toBeInTheDocument();
     });
